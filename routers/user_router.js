@@ -10,8 +10,8 @@ const authMiddleWare = require('../middlewares/auth_middleware');
 router.get('/', async (req, res) => {
     // return res.send("hello user");
     await User.findOne({username: req.session.username})
-        .then((el) => res.render("{{ user }}", {user: el}));
-    return res.render("hello user", {user});
+        .then((el) => res.render("profile.hbs", {user: el}))
+        .catch((err) => res.status(500).json({message: "Ууупппссс... Ошибка!"}));
 });
 
 router.put('/', async (req, res) => {
