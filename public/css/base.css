@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+:root {
+    --general-font: Montserrat;
+
+    --background-color-1: #ffffff;
+    --background-color-2: #eeeeee;
+    --main-color-1: #4E4FEB;
+    --main-color-2: #068FFF;
+}
+
+body{
+    font-family: var(--general-font);
+}
