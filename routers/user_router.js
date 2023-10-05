@@ -3,15 +3,26 @@ require('dotenv').config();
 const router = require('express').Router();
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
+const authMiddleWare = require('../middlewares/auth_middleware');
 
-router.put('/password', async (req, res) => {
-    const { password } = req.body;
-    const currentUser = req.session.user;
+router.use(authMiddleWare);
 
-    bcrypt.compare(password, currentUser.password, (err, result) => {
-        
-    });
+router.get('/', async (req, res) => {
+    // return res.send("hello user");
+    const user = await User.findOne({username: req.session.username});
+    return res.render("{{ user.username }}", {user});
+});
 
+router.put('/', async (req, res) => {
+    const { firstname, lastname,birthDay } = req.body;
+    
+    await User.updateOne({username: req.session.username}, {
+        firstname,
+        lastname,
+        birthDay
+    })
+    .then(() => res.send('User updated!'))
+    .catch((err) => res.status(500).json({message: 'Упппсс, Что-то пошло не так!'}));
 });
 
 module.exports = router;

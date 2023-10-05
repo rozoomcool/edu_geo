@@ -26,8 +26,8 @@ router.post('/login', async (req, res) => {
       }
 
       if (result) {
-        req.session.user = user;
-        return res.redirect('/dashboard');
+        req.session.username = user.username;
+        return res.redirect('/');
       } else {
         return res.send('Invalid credentials');
       }

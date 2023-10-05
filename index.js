@@ -10,7 +10,6 @@ const PORT = 3000 || process.env.PORT;
 
 const authRouter = require('./routers/auth_router');
 const userRouter = require('./routers/user_router');
-const authMiddleWare = require('./middlewares/auth_middleware');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
@@ -26,7 +25,7 @@ app.set("view engine", "hbs");
 
 app.use('/auth', authRouter);
 
-app.use('/user', authMiddleWare, userRouter);
+app.use('/user', userRouter);
 
 app.use('/', (req, res) => {
     res.send("<h1>Hello World!</h1>");
