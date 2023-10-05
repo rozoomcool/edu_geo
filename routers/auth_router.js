@@ -28,6 +28,10 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.get('/reg', async (req, res) => {
+  res.render('registration.hbs')
+});
+
 router.post('/reg', async (req, res) => {
   try{
     const { firstname, lastname, username, password, birthDay, role } = req.body;
