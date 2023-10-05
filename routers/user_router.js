@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     // return res.send("hello user");
     await User.findOne({username: req.session.username})
         .then((el) => res.render("{{ user }}", {user: el}));
-    return res.render("{{ user.username }}", {user});
+    return res.render("hello user", {user});
 });
 
 router.put('/', async (req, res) => {
