@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
 const userSchema = new mongoose.Schema({
@@ -12,6 +13,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         minLength: 2,
         maxLength: 2
+    },
+    birthDay: {
+      type: Date,
+      required: true
     },
     username: {
       type: String,

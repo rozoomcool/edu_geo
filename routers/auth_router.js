@@ -6,21 +6,27 @@ const User = require('../models/user')
 const SALT = process.env.SALT;
 
 router.post('/login', async (req, res) => {
+  try{
     const { username, password } = req.body;
 
+    const user = await User.find({username});
+    if (!user) return res.status(403).json({message: 'Пользовательские данные введены не корректно'}); 
     
+    bcrypt.compare(password, user.password, (err, result) => {
+      if (err || !result) return res.status(403).json({message: 'Введен нверный пароль'});
+    });
 
-    if (true) {
-      req.session.user = req.body.username;
-      res.send('Вы успешно вошли в систему');
-    } else {
-      res.send('Неверные учетные данные');
-    }
+    req.session.username = username;
+    return res.send('Пользователь успешно зарегистрирован!');
+  } catch (e) {
+    res.status(500).json({message: 'Ууупс, какие-то проблемы с сервером'});
+    console.log('Ошибка в роутере /login'); 
+  }
 });
 
 router.post('/reg', async (req, res) => {
   try{
-    const { firstname, lastname, username, password, role } = req.body;
+    const { firstname, lastname, username, password, birthDay, role } = req.body;
     let userInstance = User();
 
     bcrypt.hash(password, SALT, (err, hash) => {
@@ -28,6 +34,7 @@ router.post('/reg', async (req, res) => {
           firstname,
           lastname,
           username,
+          birthDay,
           password: hash,
           role: role === null || role === undefined ? 'student' : role
         })
@@ -42,3 +49,20 @@ router.post('/reg', async (req, res) => {
       res.status(500).json({ message: 'Произошла ошибка при регистрации пользователя' });
     }
 })
+
+router.post('/logout', async (req, res) => {
+  try{
+    req.session.destroy((err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        return res.redirect('/'); 
+      }
+    });
+  } catch (e) {
+    res.status(500).json({message: 'Ууупс, какие-то проблемы с сервером'});
+    console.log('Ошибка в роутере /logout'); 
+  }
+});
+
+module.exports = router;
