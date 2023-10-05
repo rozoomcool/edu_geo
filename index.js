@@ -1,5 +1,8 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
+const session = require('express-session');
 const app = express();
 
 const PORT = 3000 || process.env.PORT;
@@ -10,18 +13,18 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "hbs");
 
 app.use(session({
-    secret: proccess.env.SECRET_KEY,
+    secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true,
 }));
 
 async function start() {
-    await mongoose.connect('mongodb://127.0.0.1:27017')
+    await mongoose.connect('mongodb://127.0.0.1:27017/edugeo')
         .then(() => console.log('DB start successful!'))
         .catch((err) => console.error(err));
 
     app.listen(PORT, () => {
-        console.log(`Server start on port ${PORT}.`)
+        console.log(`Server start on port ${PORT}.`);
     });
 }
 
