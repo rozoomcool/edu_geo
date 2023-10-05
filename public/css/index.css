@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.quest-small {
+    color: #20766D;
+text-align: center;
+font-family: Montserrat;
+font-size: 64px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.quest-small:hover {
+    color: #000;
+}
+.logo-text:hover{
+    color: #20766D;
+}
+.map {
+    color: #000;
+font-family: Montserrat;
+font-size: 120px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+header {
+    width: 100%;
+}
+
+.header {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.header-logo {
+    display: flex;
+    
+}
+
+.nav {
+    display: flex;
+}
