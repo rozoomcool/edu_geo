@@ -6,13 +6,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minLength: 2,
-        maxLength: 2
+        maxLength: 36
     },
     lastname: {
         type: String,
         required: true,
         minLength: 2,
-        maxLength: 2
+        maxLength: 36
     },
     birthDay: {
       type: Date,
@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
       type: String,
       required: true,
       minLength: 8,
-      maxLength: 24
+      maxLength: 255
     },
     role: {
       type: String,

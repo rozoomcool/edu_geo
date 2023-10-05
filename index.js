@@ -3,12 +3,22 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 const app = express();
 
 const PORT = 3000 || process.env.PORT;
-const urlencodedParser = express.urlencoded({extended: false});
 
 const authRouter = require('./routers/auth_router');
+const userRouter = require('./routers/user_router');
+const authMiddleWare = require('./middlewares/auth_middleware');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
 
 app.use(express.static(__dirname + "/public"));
 
@@ -16,12 +26,7 @@ app.set("view engine", "hbs");
 
 app.use('/auth', authRouter);
 
-app.use(session({
-    secret: process.env.SECRET_KEY,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-}));
+app.use('/user', authMiddleWare, userRouter);
 
 app.use('/', (req, res) => {
     res.send("<h1>Hello World!</h1>");

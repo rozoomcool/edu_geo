@@ -2,29 +2,39 @@ require('dotenv').config();
 
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
-const User = require('../models/user')
-const SALT = process.env.SALT;
+const User = require('../models/user');
+const SALT = parseInt(process.env.SALT);
 
 router.get('/login', async (req, res) => {
   return res.render('login.hbs');
 });
 
 router.post('/login', async (req, res) => {
-  try{
-    const { username, password } = req.body;
+  const { username, password } = req.body;
 
-    const user = await User.find({username});
-    if (!user) return res.status(403).json({message: 'Пользовательские данные введены не корректно'}); 
-    
+  try {
+    const user = await User.findOne({ username });
+
+    if (!user) {
+      return res.send('Invalid credentials');
+    }
+
     bcrypt.compare(password, user.password, (err, result) => {
-      if (err || !result) return res.status(403).json({message: 'Введен нверный пароль'});
-    });
+      if (err) {
+        console.log(err);
+        return res.status(500).send('Internal Server Error');
+      }
 
-    req.session.username = username;
-    return res.send('Пользователь успешно зарегистрирован!');
-  } catch (e) {
-    res.status(500).json({message: 'Ууупс, какие-то проблемы с сервером'});
-    console.log('Ошибка в роутере /login'); 
+      if (result) {
+        req.session.user = user;
+        return res.redirect('/dashboard');
+      } else {
+        return res.send('Invalid credentials');
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send('Internal Server Error');
   }
 });
 
@@ -34,29 +44,30 @@ router.get('/reg', async (req, res) => {
 
 router.post('/reg', async (req, res) => {
   try{
-    const { firstname, lastname, username, password, birthDay, role } = req.body;
-    let userInstance = User();
+    const { firstname, lastname, username, password, birthDay} = req.body;
+    let hashPass = bcrypt.hashSync(password, SALT, (err, hash) => {
+        if(err){
+          console.log(err);
+        }
+    });
 
-    bcrypt.hash(password, SALT, (err, hash) => {
-        userInstance = User({
-          firstname,
-          lastname,
-          username,
-          birthDay,
-          password: hash,
-          role: role === null || role === undefined ? 'student' : role
-        })
-    }).catch((err) => console.log('Error in bcrypt hashing password in /reg'));
+    await User({
+      firstname: firstname,
+      lastname: lastname,
+      birthDay: birthDay,
+      username: username,
+      password: hashPass,
+      role: 'student'
+    }).save()
+      .catch((e) => new Error());
 
-    await userInstance.insertOne()
-      .catch((err) => console.error('Error in saving user in /reg!'));
-  
-      res.status(200).json({ message: 'Пользователь успешно зарегистрирован' });
+    return res.redirect('/auth/login');
+
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Произошла ошибка при регистрации пользователя' });
+      console.log(error);
+      return res.status(500).json({ message: 'Произошла ошибка при регистрации пользователя' });
     }
-})
+});
 
 router.post('/logout', async (req, res) => {
   try{
