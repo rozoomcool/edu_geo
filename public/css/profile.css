@@ -1,0 +1,153 @@
+:root {
+    --background-color: var(--background-color-2);
+    --block-background-color: #fff;
+    --avatar-border-color: var(--main-color-2);
+    --font-color: var(--main-color-1);
+    --header-font-size: 28px;
+    --role-font-size: 20px;
+    --table-font-size: 18px;
+    --table-border-color: #ccc;
+    --border-radius: 26px;
+}
+
+body {
+    font-family: var(--general-font);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--font-color);
+}
+
+.profile-container, .title {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.avatar-section, .info-section, .students-table {
+    background-color: var(--background-color-1);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0px 0px 38px -21px rgba(0, 0, 0, 0.15);
+}
+
+.avatar-section {
+    text-align: center;
+    width: 30%;
+}
+
+.info-section{
+    width: 60%;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.name {
+    font-size: var(--header-font-size);
+    margin: 15px 0 10px;
+}
+
+.role {
+    font-size: var(--role-font-size);
+    color: gray;
+}
+
+.info-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-section td {
+    padding: 10px;
+    font-size: var(--table-font-size);
+
+    color: gray;
+}
+
+.info-section td strong{
+    color: var(--font-color)
+}
+
+td input{
+    border: none;
+    border-bottom: 1px solid gray;
+    font-size: var(--table-font-size);
+    font-family: var(--general-font);
+    color: gray;
+}
+
+td input:focus{
+    border: none;
+    border-bottom: 1px solid gray;
+
+    outline: none;
+}
+
+.students-table{
+    width: 100%;
+}
+
+.students-table table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.students-table tr{
+    padding: 10px;
+}
+
+.students-table td{
+    padding: 10px;
+    font-size: var(--table-font-size);
+
+    color: var(--main-color-2);
+    font-weight: 900;
+
+    border-bottom: 1px solid rgba(50, 50, 50, 0.14);
+}
+
+.students-table td:first-child{
+    color: var(--main-color-1);
+}
+
+.students-table .td-main{
+    color: var(--main-color-1);
+}
+
+.form-input{
+    display:none;
+}
+
+
+button{
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: none;
+
+    background-color: var(--main-color-2);
+    color: var(--background-color-1);
+    font-family: var(--general-font);
+
+    margin: 20px 10px 5px 10px;
+
+    transition: all .3s ease-in;
+}
+
+.buttons-group{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dangerous-button{
+    background-color: #F24C3D;
+}
+
+button:hover{
+    transition: all .3s ease-in;
+}
