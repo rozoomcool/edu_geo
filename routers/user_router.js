@@ -5,11 +5,12 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const authMiddleWare = require('../middlewares/auth_middleware');
 
-router.use(authMiddleWare);
+// router.use(authMiddleWare);
 
 router.get('/', async (req, res) => {
     // return res.send("hello user");
-    const user = await User.findOne({username: req.session.username});
+    await User.findOne({username: req.session.username})
+        .then((el) => res.render("{{ user }}", {user: el}));
     return res.render("{{ user.username }}", {user});
 });
 

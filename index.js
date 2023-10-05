@@ -27,8 +27,8 @@ app.use('/auth', authRouter);
 
 app.use('/user', userRouter);
 
-app.use('/', (req, res) => {
-    res.send("<h1>Hello World!</h1>");
+app.get('/', (req, res) => {
+    res.render("index.hbs");
 });
 
 async function start() {
