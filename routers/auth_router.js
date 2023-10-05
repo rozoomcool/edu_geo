@@ -5,6 +5,10 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user')
 const SALT = process.env.SALT;
 
+router.get('/login', async (req, res) => {
+  return res.render('login.hbs');
+});
+
 router.post('/login', async (req, res) => {
   try{
     const { username, password } = req.body;
