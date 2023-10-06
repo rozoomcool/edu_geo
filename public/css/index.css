@@ -1,0 +1,80 @@
+.main-text{
+    font-size: 120px;
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.main-text .quest{
+    color: var(--main-color-2)
+}
+
+section{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.second-text{
+    display: flex;
+    justify-content: center;
+
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.45px;
+
+    margin-top: 50px;
+}
+
+.travel-button{
+    margin-top: 50px;
+    border-radius: 10px;
+    background-color: var(--main-color-2);
+    box-shadow: 0 7px 40px -11px #20766D;
+    border: none;
+    text-decoration: none;
+    padding: 10px 40px;
+}
+
+.travel-button div {
+
+    font-family: var(--general-font);
+    color: var(--background-color-1);
+    text-align: center;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.animated-earth img{
+    width: 80vw;
+}
+
+img.earth-png {
+    animation: 1s linear 15s normal none infinite running rot;
+    -webkit-animation: 15s linear 0s normal none infinite running rot;
+    z-index: -1;
+    position: relative;
+}
+@keyframes rot {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes rot {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
