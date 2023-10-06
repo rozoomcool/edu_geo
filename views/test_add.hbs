@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/pro.css">
     <title>Форма создания теста</title>
 </head>
 <body>
     <h1>Форма создания теста</h1>
 
     <form action="/test/" method="POST" id="test-form">
-        <label for="title">Заголовок теста:</label>
+        <label class="form-label" for="title">Заголовок теста:</label>
         <input type="text" id="title" name="title" required><br><br>
 
         <div id="questions-container"></div>
@@ -26,17 +27,17 @@
 
             const questionDiv = document.createElement('div');
             questionDiv.innerHTML = `
-                <label for="question${questionIndex}">Вопрос ${questionIndex}:</label>
-                <input type="text" id="question${questionIndex}" name="questions[${questionIndex - 1}][text]" required><br>
-                <label for="option${questionIndex}1">Вариант ответа:</label>
-                <input type="text" id="option${questionIndex}1" name="questions[${questionIndex - 1}][options][0][text]" required>
-                <input type="checkbox" name="questions[${questionIndex - 1}][options][0][isCorrect]" value="true"> Правильный ответ<br>
-                <label for="option${questionIndex}2">Вариант ответа:</label>
-                <input type="text" id="option${questionIndex}2" name="questions[${questionIndex - 1}][options][1][text]" required>
-                <input type="checkbox" name="questions[${questionIndex - 1}][options][1][isCorrect]" value="true"> Правильный ответ<br>
-                <label for="option${questionIndex}3">Вариант ответа:</label>
-                <input type="text" id="option${questionIndex}3" name="questions[${questionIndex - 1}][options][1][text]" required>
-                <input type="checkbox" name="questions[${questionIndex - 1}][options][1][isCorrect]" value="true"> Правильный ответ<br><br>
+                <label class="form-label" for="question${questionIndex}">Вопрос ${questionIndex}:</label>
+                <input class="form-input" type="text" id="question${questionIndex}" name="questions[${questionIndex - 1}][text]" required><br>
+                <label class="form-label" for="option${questionIndex}1">Вариант ответа:</label>
+                <input class="form-input" type="text" id="option${questionIndex}1" name="questions[${questionIndex - 1}][options][0][text]" required>
+                <input class="form-input" type="checkbox" name="questions[${questionIndex - 1}][options][0][isCorrect]" value="true"> Правильный ответ<br>
+                <label class="form-label" for="option${questionIndex}2">Вариант ответа:</label>
+                <input class="form-input" type="text" id="option${questionIndex}2" name="questions[${questionIndex - 1}][options][1][text]" required>
+                <input class="form-input" type="checkbox" name="questions[${questionIndex - 1}][options][1][isCorrect]" value="true"> Правильный ответ<br>
+                <label class="form-label" for="option${questionIndex}3">Вариант ответа:</label>
+                <input class="form-input" type="text" id="option${questionIndex}3" name="questions[${questionIndex - 1}][options][1][text]" required>
+                <input class="form-input" type="checkbox" name="questions[${questionIndex - 1}][options][1][isCorrect]" value="true"> Правильный ответ<br><br>
             `;
 
             container.appendChild(questionDiv);
