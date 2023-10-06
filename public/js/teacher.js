@@ -28,30 +28,26 @@ function getUsers() {
 }
 
 function addStudent(userId) {
-    var xhr = new XMLHttpRequest();
-
-    // Открываем соединение, указывая метод и URL
+    let xhr = new XMLHttpRequest();
+  
     xhr.open('PUT', '/user/add_student', true);
-    
-    // Устанавливаем обработчик события 'load' для успешного завершения запроса
+  
     xhr.onload = function () {
       if (xhr.status >= 200 && xhr.status < 400) {
-        // Успешный запрос. Обрабатывайте данные здесь.
-        var data = JSON.parse(xhr.responseText);
+        let data = JSON.parse(xhr.responseText);
         showPopup(data);
         console.log(data);
       } else {
-        // Обработка ошибки
         console.error('Ошибка запроса: ' + xhr.statusText);
       }
     };
-    
-    // Устанавливаем обработчик события 'error' для ошибок сети
+  
     xhr.onerror = function () {
-      // Обработка ошибки
       console.error('Произошла ошибка сети');
     };
-    
-    // Отправляем запрос
-    xhr.send(JSON.stringify({userId}));
-}
+  
+    xhr.setRequestHeader('Content-Type', 'application/json'); // Установка заголовка
+  
+    // Отправляем запрос с данными в формате JSON
+    xhr.send(JSON.stringify({ userId: userId }));
+  }

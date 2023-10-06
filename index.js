@@ -49,6 +49,10 @@ app.get('/', async (req, res) => {
     res.render("index.hbs", {isLogin: !!req.session.username, nickname: req.session.username});
 });
 
+app.get('/game', async (req, res) => {
+    res.render('game.hbs');
+});
+
 async function start() {
     await mongoose.connect('mongodb://127.0.0.1:27017/edugeo')
         .then(() => console.log('DB start successful!'))
