@@ -19,18 +19,15 @@ router.post('/login', async (req, res) => {
       return res.send('Invalid credentials');
     }
 
-    bcrypt.compare(password, user.password, (err, result) => {
+    await bcrypt.compare(password, user.password, (err, result) => {
       if (err) {
         console.log(err);
         return res.status(500).send('Internal Server Error');
       }
 
-      if (result) {
-        req.session.username = user.username;
-        return res.redirect('/');
-      } else {
-        return res.send('Invalid credentials');
-      }
+      req.session.username = user.username;
+      return res.redirect('/');
+
     });
   } catch (error) {
     console.log(error);

@@ -6,14 +6,12 @@
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/profile.css">
     <title>Profile Page</title>
-
-    <script src="/js/profile.js"></script>
 </head>
 <body>
     <h1 class="title">Мой профиль</h1>
     <div class="profile-container">
         <div class="avatar-section">
-            <img src="avatar.jpg" alt="Аватар пользователя" class="avatar">
+            <img src="/img/avatar.jpg" alt="Аватар пользователя" class="avatar">
             <h1 class="name">Esta Mada</h1>
             <p class="role">Преподаватель</p>
         </div>
@@ -21,7 +19,7 @@
             <table id="profile-info-table">
                 <tr>
                     <td><strong>Имя:</strong></td>
-                    <td class="td-info">Жан Клод Вам  Не Дам</td>
+                    <td class="td-info">{{ user.firstname }}</td>
                     <td><input class="form-input" name="firstname" value="" type="text"></td>
                 </tr>
                 <tr>
@@ -88,5 +86,7 @@
             </table>
         </div>
     </div>
+
+    <script src="/js/profile.js"></script>
 </body>
 </html>

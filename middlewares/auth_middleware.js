@@ -1,9 +1,8 @@
-module.exports = checkUserRole = () => {
-    return function(req, res, next) {
-      if (req.session.username) {
+module.exports = (req, res, next) => {
+    console.log(req.session);
+    if (req.session.username) {
         next();
-      } else {
-        res.status(403).send('Доступ запрещен');
-      }
+    } else {
+        res.redirect('auth/login');
     }
-  }
+}

@@ -5,7 +5,7 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const authMiddleWare = require('../middlewares/auth_middleware');
 
-// router.use(authMiddleWare);
+router.use(authMiddleWare);
 
 router.get('/', async (req, res) => {
     // return res.send("hello user");

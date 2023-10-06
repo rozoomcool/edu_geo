@@ -8,7 +8,7 @@ const save_buttons_btn = `
 `
 
 const get_infos = () => document.querySelectorAll('.td-info');
-const get_inputs = () => document.querySelectorAll('.td-info');
+const get_inputs = () => document.querySelectorAll('.form-input');
 
 function edit(){
     const infos = get_infos();

@@ -13,10 +13,14 @@ const userRouter = require('./routers/user_router');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
+    name: 'cook',
     secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: { 
+        secure: false,
+        maxAge: 60000 * 60000 * 5
+     }
 }));
 
 app.use(express.static(__dirname + "/public"));
@@ -27,8 +31,8 @@ app.use('/auth', authRouter);
 
 app.use('/user', userRouter);
 
-app.get('/', (req, res) => {
-    res.render("index.hbs");
+app.get('/', async (req, res) => {
+    res.render("index.hbs", {isLogin: req.session.username ? true : false, nickname: req.session.username});
 });
 
 async function start() {
