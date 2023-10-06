@@ -4,12 +4,122 @@
 :root {
     --general-font: Montserrat;
 
-    --background-color-1: #ffffff;
-    --background-color-2: #eeeeee;
-    --main-color-1: #5995c6;
-    --main-color-2: #5d7d97;
+    --background-color-1: #F5F5F5;
+    --background-color-2: #ffffff   ;
+    --main-color-1: #000000;
+    --main-color-2: #20766D;
 }
 
 body{
     font-family: var(--general-font);
+}
+
+body {
+    width: 100%;
+    font-family: var(--general-font);
+    margin: auto;
+    background: #F5F5F5;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+body::-webkit-scrollbar
+{
+    display: none;
+}
+
+.head{
+    position: relative;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    width: 100%;
+    height: 100px;
+
+    padding: 0;
+    margin: 0;
+
+    background-color: #F5F5F5;
+    color: black;
+    box-shadow: 0 -17px 41px 6px rgba(0, 0, 0, 0.10);
+
+}
+
+.head-content{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+
+    width: 80%;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    font-size: 48px;
+    font-weight: 800;
+
+    color: var(--main-color-1);
+
+    transition: all 0.3s ease-in;
+    text-decoration: none;
+}
+.logo:hover{
+    letter-spacing: 1px;
+}
+
+.quest-span{
+    color: var(--main-color-2);
+}
+.map-span:hover   {
+    color: var(--main-color-1)
+}
+
+
+.nav {
+    display: flex;
+    font-size: 25px;
+    height: 100%;
+}
+
+.nav .header-url {
+    color : var(--main-color-1);
+    transition: all 0.3s ease-in;
+}
+.nav .header-url:hover {
+    color : var(--main-color-2);
+    transition: all 0.3s ease-in;
+}
+
+.nav a, .nav button {
+    height: 100%;
+    font-weight: 600;
+    text-align: center;
+    font-family: var(--general-font);
+
+    text-decoration: none;
+    font-size: 25px;
+    font-style: normal;
+    line-height: normal;
+    align-self: center;
+    margin: auto 8px;
+}
+
+.login-btn, .register-btn{
+    height: 50%;
+    padding: 4px 20px;
+    border-radius: 10px;
+    background-color: var(--main-color-2);
+    color: var(--background-color-1);
+    margin: auto 10px;
+    text-align: center;
+    border: none;
+}
+.login-btn{
+    background-color: transparent;
+    border: 2px solid var(--main-color-2);
+    color: var(--main-color-1);
+
+    padding: 2px 20px;
 }

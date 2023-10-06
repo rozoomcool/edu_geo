@@ -1,0 +1,19 @@
+<div class="head">
+    <div class="head-content">
+        <a href="#" class="logo">
+            <span class="quest-span">Quest</span>
+            <span class="map-span">Map</span>
+        </a>
+        <div class="nav">
+            <a class="header-url" href="/">Главная</a>
+            {{#if isLogin}}
+                <a class="header-url" href="/user">{{nickname}}</a>
+            {{else}}
+                <a></a>
+                <a></a>
+                <button href="#" class="login-btn">Вход</button>
+                <button href="#" class="register-btn">Регистрация</button>
+            {{/if}}
+        </div>
+    </div>
+</div>

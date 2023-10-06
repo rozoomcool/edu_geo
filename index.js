@@ -1,15 +1,28 @@
 require('dotenv').config();
 
 const express = require('express');
+const expressHbs = require("express-handlebars");
 const mongoose = require('mongoose');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const hbs = require("hbs");
 const app = express();
 
 const PORT = 3000 || process.env.PORT;
 
 const authRouter = require('./routers/auth_router');
 const userRouter = require('./routers/user_router');
+
+// устанавливаем настройки для файлов layout
+app.engine("hbs", expressHbs.engine(
+    {
+        layoutsDir: "views/layouts",
+        defaultLayout: "layout",
+        extname: "hbs"
+    }
+))
+app.set("view engine", "hbs");
+hbs.registerPartials(__dirname + "/views/partials");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
@@ -24,8 +37,6 @@ app.use(session({
 }));
 
 app.use(express.static(__dirname + "/public"));
-
-app.set("view engine", "hbs");
 
 app.use('/auth', authRouter);
 
