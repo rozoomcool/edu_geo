@@ -1,20 +1,23 @@
-# Используем базовый образ с Node.js
-FROM node:14
+# Используем официальный образ Node.js
+FROM node:latest
 
-# Устанавливаем рабочую директорию внутри контейнера
+# Устанавливаем MongoDB
+RUN apt-get update && apt-get install -y mongodb
+
+# Создаем директорию для приложения
 WORKDIR /usr/src/app
 
-# Копируем package.json и package-lock.json (если есть) в контейнер
+# Копируем package.json и package-lock.json
 COPY package*.json ./
 
 # Устанавливаем зависимости
 RUN npm install
 
-# Копируем остальные файлы проекта в контейнер
+# Копируем остальные файлы приложения
 COPY . .
 
-# Открываем порт, который будет использоваться приложением
+# Открываем порт для приложения Node.js
 EXPOSE 3000
 
-# Команда для запуска приложения
-CMD ["node", "index.js"]
+# Запускаем MongoDB и приложение Node.js
+CMD service mongodb start && node index.js
