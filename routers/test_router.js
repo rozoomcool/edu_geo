@@ -10,9 +10,9 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const { title, questions } = req.body;
-    await Test.save({title, questions})
+    await Test({title, questions}).save()
         .then(() => res.render('test_add.hbs', {message: 'Тест успешно добавлен'}))
-        .catch((err) => res.status(500).json({message: "Ууппссссс... Что-то пошло не так!"}));
+        .catch((err) => console.log(err));
 });
 
 router.put('/', async (req, res) => {

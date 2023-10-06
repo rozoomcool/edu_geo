@@ -34,9 +34,7 @@ function addStudent(userId) {
   
     xhr.onload = function () {
       if (xhr.status >= 200 && xhr.status < 400) {
-        let data = JSON.parse(xhr.responseText);
-        showPopup(data);
-        console.log(data);
+        alert('Пользователь успешного добавлен');
       } else {
         console.error('Ошибка запроса: ' + xhr.statusText);
       }

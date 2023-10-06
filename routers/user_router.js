@@ -26,9 +26,8 @@ router.get('/all', async (req, res) => {
 router.put('/add_student', roleMiddleware('teacher'), async (req, res) => {
     let user = await User.findOne({username: req.session.username});
     const {userId} = req.body;
-
-    user.children += userId;
-    await User.updateOne({username: req.session.username}, user)
+console.log(userId);
+    await User.updateOne({username: req.session.username}, {children: user.children + userId})
         .then(() => res.render('teacher_profile.hbs', {message: "Пользователь успешно добавлен"}))
         .catch((err) => res.status(500).json({message: 'Упппсс, Что-то пошло не так!'}));
 });
