@@ -7,7 +7,7 @@
     --background-color-1: #F5F5F5;
     --background-color-2: #ffffff   ;
     --main-color-1: #000000;
-    --main-color-2: #20766D;
+    --main-color-2: #20766d;
 }
 
 body{
@@ -18,7 +18,7 @@ body {
     width: 100vw;
     font-family: var(--general-font);
     margin: auto;
-    background: #F5F5F5;
+    background: var(--background-color-2);
 
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -121,6 +121,7 @@ body::-webkit-scrollbar
     margin: auto 10px;
     text-align: center;
     border: none;
+    transition: all 0.3s ease-in;
 }
 .login-btn{
     background-color: transparent;
@@ -130,14 +131,25 @@ body::-webkit-scrollbar
     padding: 8px 20px;
 }
 
+.login-btn:hover, .register-btn:hover{
+    box-shadow: 5px 5px 0 0.5px #00a48c;
+
+    transition: all 0.3s ease-in;
+}
+
 footer{
+    width: 100vw;
+    background-color: var(--background-color-1);
+}
+
+.footer-item{
+    width: 80vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80vw;
     margin: auto;
 
-    height: 200px;
+    height: 100px;
 }
 
 .header-title{

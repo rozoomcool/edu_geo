@@ -2,14 +2,14 @@
 
 .register-container {
     margin: 15vh auto;
-    background-color: var(--background-color-1);
+    background-color: var(--background-color-2);
     padding: 20px;
     border-radius: 16px;
     width: 30%;
     min-width: 400px;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(87, 87, 87, 0.05);
-    min-height: 35vh;
+    box-shadow: 0 4px 15px rgba(87, 87, 87, 0.3);
+    min-height: 45vh;
 
     display: flex;
     flex-direction: column;
@@ -75,4 +75,14 @@
 
 .register-container button:hover {
     background-color:  var(--main-color-2);
+}
+
+.reg-url{
+    margin-top: 30px;
+    color: var(--main-color-2)
+}
+
+.reg-url:hover{
+    margin-top: 30px;
+    color: #00a48c;
 }
