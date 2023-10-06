@@ -43,7 +43,7 @@ app.use('/auth', authRouter);
 app.use('/user', userRouter);
 
 app.get('/', async (req, res) => {
-    res.render("index.hbs", {isLogin: req.session.username ? true : false, nickname: req.session.username});
+    res.render("index.hbs", {isLogin: !!req.session.username, nickname: req.session.username});
 });
 
 async function start() {
