@@ -54,7 +54,7 @@ router.post('/reg', async (req, res) => {
       birthDay: birthDay,
       username: username,
       password: hashPass,
-      role: 'student'
+      role: 'teacher'
     }).save()
       .catch((e) => new Error());
 

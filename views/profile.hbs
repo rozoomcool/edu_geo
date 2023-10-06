@@ -12,10 +12,11 @@
     <div class="profile-container">
         <div class="avatar-section">
             <img src="/img/avatar.jpg" alt="Аватар пользователя" class="avatar">
-            <h1 class="name">Esta Mada</h1>
-            <p class="role">Преподаватель</p>
+            <h1 class="name">{{ user.firstname }}  {{ user.lastname }}</h1>
+            <p class="role">{{ user.role }}</p>
         </div>
         <div class="info-section">
+            <form action="/user" method="PUT">
             <table id="profile-info-table">
                 <tr>
                     <td><strong>Имя:</strong></td>
@@ -24,7 +25,7 @@
                 </tr>
                 <tr>
                     <td><strong>Фамилия:</strong></td>
-                    <td class="td-info">Фамилия</td>
+                    <td class="td-info">{{ user.lastname }}</td>
                     <td><input class="form-input" name="lastname" value="" type="text"></td>
                 </tr>
                 <tr>
@@ -39,7 +40,7 @@
                 </tr>
                 <tr>
                     <td><strong>Дата рождения:</strong></td>
-                    <td class="td-info">2000-01-01</td>
+                    <td class="td-info">{{ user.birthDay }}</td>
                     <td><input class="form-input" name="city" value="" type="text"></td>
                 </tr>
                 <tr>
@@ -48,7 +49,7 @@
                     <td><input class="form-input" name="city" value="" type="text"></td>
                 </tr>
             </table>
-
+            </form>
             <div class="buttons-group" id="buttons-group">
                 <button onclick="edit()">Редактировать</button>
             </div>

@@ -4,7 +4,7 @@ const edit_button_btn = `
 
 const save_buttons_btn = `
 <button class="dangerous-button" onclick="cancel()">Отмена</button>
-<button onclick="save()">Сохранить</button>
+<button type="submit" onclick="save()">Сохранить</button>
 `
 
 const get_infos = () => document.querySelectorAll('.td-info');
