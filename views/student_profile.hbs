@@ -3,7 +3,7 @@
 <div class="profile-container">
     <div class="avatar-section">
         <img src="/img/avatar.jpg" alt="Аватар пользователя" class="avatar">
-        <h1 class="name">{{ user.firstname }}  {{ user.lastname }}</h1>
+        <h1 class="name">{{ firstname }}  {{ lastname }}</h1>
         <p class="role">Ученик</p>
     </div>
     <div class="info-section">
@@ -11,12 +11,12 @@
         <table id="profile-info-table">
             <tr>
                 <td><strong>Имя:</strong></td>
-                <td class="td-info">{{ user.firstname }}</td>
+                <td class="td-info">{{ firstname }}</td>
                 <td><input class="form-input" name="firstname" value="" type="text"></td>
             </tr>
             <tr>
                 <td><strong>Фамилия:</strong></td>
-                <td class="td-info">{{ user.lastname }}</td>
+                <td class="td-info">{{ lastname }}</td>
                 <td><input class="form-input" name="lastname" value="" type="text"></td>
             </tr>
             <tr>
@@ -31,7 +31,7 @@
             </tr>
             <tr>
                 <td><strong>Дата рождения:</strong></td>
-                <td class="td-info">{{ user.birthDay }}</td>
+                <td class="td-info">{{ birthDay }}</td>
                 <td><input class="form-input" name="city" value="" type="text"></td>
             </tr>
             <tr>
@@ -47,33 +47,29 @@
     </div>
 </div>
 
-<h1 class="title">Мои ученики</h1>
+<h1 class="title">Мои задачи</h1>
 <div class="profile-container">
     <div class="students-table">
         <table>
             <tr>
-                <td class="td-main">Имя</td>
-                <td class="td-main">Пройдено тестов</td>
-                <td class="td-main">Средний балл</td>
-                <td class="td-main">Рейтинг</td>
+                <td class="td-main" style="font-weight: 400;">Название</td>
+                <td class="td-main" style="font-weight: 400;">количество прошедших</td>
+                <td class="td-main" style="font-weight: 400;">сложность</td>
             </tr>
             <tr>
-                <td>Жан Клод</td>
-                <td>15</td>
-                <td>25</td>
-                <td>x</td>
+                <td>Названия стран</td>
+                <td>10</td>
+                <td>Easy</td>
             </tr>
             <tr>
-                <td>Жан Клод</td>
-                <td>15</td>
-                <td>25</td>
-                <td>x</td>
+                <td>Полезные ископаемые</td>
+                <td>4</td>
+                <td style="color: rgb(221, 236, 10)">Middle</td>
             </tr>
             <tr>
-                <td>Жан Клод</td>
-                <td>15</td>
-                <td>25</td>
-                <td>x</td>
+                <td>Районы Грозного</td>
+                <td>3</td>
+                <td style="color: rgb(176, 62, 62)">Hard</td>
             </tr>
         </table>
     </div>

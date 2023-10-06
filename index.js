@@ -53,6 +53,10 @@ app.get('/game', async (req, res) => {
     res.render('game.hbs');
 });
 
+app.get('/theory', async (req, res) => {
+    res.render('theory.hbs');
+});
+
 async function start() {
     await mongoose.connect('mongodb://127.0.0.1:27017/edugeo')
         .then(() => console.log('DB start successful!'))

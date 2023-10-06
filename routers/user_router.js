@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const router = require('express').Router();
 const User = require('../models/user');
+const Test = require('../models/test');
 const bcrypt = require('bcryptjs');
 const authMiddleWare = require('../middlewares/auth_middleware');
 const roleMiddleware = require('../middlewares/role_middleware');
@@ -34,16 +35,18 @@ console.log(userId);
 
 router.get('/', async (req, res) => {
     await User.findOne({username: req.session.username})
-        .then((el) => {
+        .then(async (el) => {
             let birthDay = `${String(el.birthDay.getDay()).length == 1 ? '0' : ''}${el.birthDay.getDay()}.${String(el.birthDay.getMonth()).length == 1 ? '0' : ''}${el.birthDay.getMonth()}.${el.birthDay.getFullYear()}`;
             if (el.role === 'student') {
-                return res.render('student_profile.hbs', { firstname: el.firstname, lastname: el.lastname, birthDay: birthDay });
+                let tests = await Test.find({});
+
+                return res.render('student_profile.hbs', { isLogin: true, tests: tests, firstname: el.firstname, lastname: el.lastname, birthDay: birthDay });
             }
             if (el.role === 'teacher') {
-                return res.render('teacher_profile.hbs', { firstname: el.firstname, lastname: el.lastname, birthDay: birthDay, children: el.children });
+                return res.render('teacher_profile.hbs', { isLogin: true, firstname: el.firstname, lastname: el.lastname, birthDay: birthDay, children: el.children });
             }
             if (el.role === 'admin') {
-                return res.render('student_profile.hbs', { firstname: el.firstname, lastname: el.lastname, birthDay: birthDay });
+                return res.render('student_profile.hbs', { isLogin: true, firstname: el.firstname, lastname: el.lastname, birthDay: birthDay });
             }
             
         })
