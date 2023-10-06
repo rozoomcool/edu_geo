@@ -15,7 +15,7 @@ body{
 }
 
 body {
-    width: 100%;
+    width: 100vw;
     font-family: var(--general-font);
     margin: auto;
     background: #F5F5F5;
@@ -66,11 +66,17 @@ body::-webkit-scrollbar
     text-decoration: none;
 }
 .logo:hover{
-    letter-spacing: 1px;
+
 }
 
+.quest-span, .map-span{
+    text-decoration: none;
+}
 .quest-span{
     color: var(--main-color-2);
+}
+.map-span{
+    color: var(--main-color-1);
 }
 .map-span:hover   {
     color: var(--main-color-1)
@@ -122,4 +128,30 @@ body::-webkit-scrollbar
     color: var(--main-color-1);
 
     padding: 8px 20px;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80vw;
+    margin: auto;
+
+    height: 200px;
+}
+
+.header-title{
+
+}
+
+.copyright{
+
+}
+
+.social-media{
+    display: flex;
+}
+.social-media img{
+    height: 45px;
+    margin: 10px;
 }
