@@ -21,15 +21,15 @@ const pages = {
 router.get('/', async (req, res) => {
     await User.findOne({username: req.session.username})
         .then((el) => {
-            el.birthDay = `${el.birthDay.getDay()}.${el.birthDay.getMonth()}.${el.birthDay.getFullYear()}`;
+            let birthDay = `${String(el.birthDay.getDay()).length == 1 ? '0' : ''}${el.birthDay.getDay()}.${String(el.birthDay.getMonth()).length == 1 ? '0' : ''}${el.birthDay.getMonth()}.${el.birthDay.getFullYear()}`;
             if (el.role === 'student') {
-                return res.render('student_profile.hbs', { user: el });
+                return res.render('student_profile.hbs', { firstname: el.firstname, lastname: el.lastname, birthDay: birthDay });
             }
             if (el.role === 'teacher') {
-                return res.render('teacher_profile.hbs', { user: el });
+                return res.render('teacher_profile.hbs', { firstname: el.firstname, lastname: el.lastname, birthDay: birthDay });
             }
             if (el.role === 'admin') {
-                return res.render('student_profile.hbs', { user: el });
+                return res.render('student_profile.hbs', { firstname: el.firstname, lastname: el.lastname, birthDay: birthDay });
             }
             
         })

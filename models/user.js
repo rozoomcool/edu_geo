@@ -31,6 +31,10 @@ const userSchema = new mongoose.Schema({
       minLength: 8,
       maxLength: 255
     },
+    children: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }],
     role: {
       type: String,
       enum: ['student', 'teacher', 'admin'],
