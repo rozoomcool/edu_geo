@@ -9,14 +9,14 @@
     font-size: 24px;
     color: #004d40;
     margin-bottom: 20px;
-    padding: 10px; /* Добавим отступ для удобства чтения */
+    padding: 10px;
 }
 
 .button-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%; /* Полная ширина для мобильных устройств */
+    width: 100%;
 }
 
 .answer-button {
@@ -28,8 +28,8 @@
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    text-align: center; /* Центрируем текст на кнопках */
-    overflow-wrap: break-word; /* Переносим длинные слова */
+    text-align: center;
+    overflow-wrap: break-word;
 }
 
 .answer-button:hover {
