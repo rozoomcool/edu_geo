@@ -29,6 +29,11 @@ body::-webkit-scrollbar
     display: none;
 }
 
+main{
+    left: 0;
+    width: 100vw;
+}
+
 .head{
     position: relative;
     left: 0;
@@ -137,6 +142,10 @@ body::-webkit-scrollbar
 
     transition: all 0.3s ease-in;
 }
+
+
+
+
 
 footer{
     width: 100vw;
