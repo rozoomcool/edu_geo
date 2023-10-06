@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/pro.css">
+    <link rel="stylesheet" href="/css/popup.css">
     <title>Profile Page</title>
 </head>
 <body>
@@ -57,37 +58,46 @@
         </div>
     </div>
 
+    <div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <div class="pop-content">
+
+        </div>
+    </div>
+    </div>
+
     <div class="title">
         <h2 class="">Мои ученики</h2>
-        <button class="">Добавить</button>
+        <button class="" onclick="getUsers()">Добавить</button>
     </div>
 
     <div class="profile-container">
         <div class="students-table">
             <table>
                 <tr>
-                    <td class="td-main">Имя</td>
-                    <td class="td-main">Пройдено тестов</td>
-                    <td class="td-main">Средний балл</td>
-                    <td class="td-main">Рейтинг</td>
+                    <td class="td-main" style="font-weight: 400;">Имя</td>
+                    <td class="td-main" style="font-weight: 400;">Пройдено тестов</td>
+                    <td class="td-main" style="font-weight: 400;">Средний балл</td>
+                    <td class="td-main" style="font-weight: 400;">Рейтинг</td>
                 </tr>
                 <tr>
-                    <td>Жан Клод</td>
-                    <td>15</td>
-                    <td>25</td>
+                    <td>Алексей Смирнов</td>
+                    <td>3/8</td>
+                    <td>3.5/5</td>
+                    <td>24</td>
+                </tr>
+                <tr>
+                    <td>Жак Фреско</td>
+                    <td>5/8</td>
+                    <td>4/5</td>
                     <td>x</td>
                 </tr>
                 <tr>
-                    <td>Жан Клод</td>
-                    <td>15</td>
-                    <td>25</td>
-                    <td>x</td>
-                </tr>
-                <tr>
-                    <td>Жан Клод</td>
-                    <td>15</td>
-                    <td>25</td>
-                    <td>x</td>
+                    <td>Ссату Якубов</td>
+                    <td>2/8</td>
+                    <td>3/5</td>
+                    <td>16</td>
                 </tr>
             </table>
         </div>
@@ -102,33 +112,31 @@
         <div class="students-table">
             <table>
                 <tr>
-                    <td class="td-main">Имя</td>
-                    <td class="td-main">Пройдено тестов</td>
-                    <td class="td-main">Средний балл</td>
-                    <td class="td-main">Рейтинг</td>
+                    <td class="td-main" style="font-weight: 400;">Название</td>
+                    <td class="td-main" style="font-weight: 400;">количество прошедших</td>
+                    <td class="td-main" style="font-weight: 400;">сложность</td>
                 </tr>
                 <tr>
-                    <td>Жан Клод</td>
-                    <td>15</td>
-                    <td>25</td>
-                    <td>x</td>
+                    <td>Названия стран</td>
+                    <td>10</td>
+                    <td>Easy</td>
                 </tr>
                 <tr>
-                    <td>Жан Клод</td>
-                    <td>15</td>
-                    <td>25</td>
-                    <td>x</td>
+                    <td>Полезные ископаемые</td>
+                    <td>4</td>
+                    <td style="color: rgb(221, 236, 10)">Middle</td>
                 </tr>
                 <tr>
-                    <td>Жан Клод</td>
-                    <td>15</td>
-                    <td>25</td>
-                    <td>x</td>
+                    <td>Районы Грозного</td>
+                    <td>3</td>
+                    <td style="color: rgb(176, 62, 62)">Hard</td>
                 </tr>
             </table>
         </div>
     </div>
 
     <script src="/js/profile.js"></script>
+    <script src="/js/teacher.js"></script>
+    <script src="/js/popup.js"></script>
 </body>
 </html>
