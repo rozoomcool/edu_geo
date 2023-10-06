@@ -8,6 +8,7 @@
     --background-color-2: #ffffff   ;
     --main-color-1: #000000;
     --main-color-2: #20766d;
+    --main-color-3: #00A19D;
 }
 
 body{
@@ -94,7 +95,7 @@ body::-webkit-scrollbar
     transition: all 0.3s ease-in;
 }
 .nav .header-url:hover {
-    color : var(--main-color-2);
+    color : var(--main-color-3);
     transition: all 0.3s ease-in;
 }
 
@@ -132,7 +133,7 @@ body::-webkit-scrollbar
 }
 
 .login-btn:hover, .register-btn:hover{
-    box-shadow: 5px 5px 0 0.5px #00a48c;
+    box-shadow: 5px 5px 0 0.5px var(--main-color-3);
 
     transition: all 0.3s ease-in;
 }

@@ -1,24 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/pro.css">
-    <title>Форма создания теста</title>
-</head>
-<body>
+
+<div class="test-container">
     <h1>Форма создания теста</h1>
 
     <form action="/test/" method="POST" id="test-form">
-        <label class="form-label" for="title">Заголовок теста:</label>
-        <input type="text" id="title" name="title" required><br><br>
+        <div class="input-group">
+            <label class="form-label" for="title">Заголовок теста:</label>
+            <input type="text" id="title" name="title" required><br><br>
+        </div>
 
-        <div id="questions-container"></div>
 
-        <button type="button" onclick="addQuestion()">Добавить вопрос</button>
+        <div id="questions-container">
 
-        <input type="submit" value="Создать тест">
+        </div>
+
+        <div class="test-buttons">
+            <button class="add-question-btn" type="button" onclick="addQuestion()">Добавить вопрос</button>
+            <button class="button create-test-btn" type="submit">Создать тест</button>
+        </div>
+
     </form>
+</div>
+
 
     <script>
         function addQuestion() {
@@ -27,21 +29,43 @@
 
             const questionDiv = document.createElement('div');
             questionDiv.innerHTML = `
-                <label class="form-label" for="question${questionIndex}">Вопрос ${questionIndex}:</label>
-                <input class="form-input" type="text" id="question${questionIndex}" name="questions[${questionIndex - 1}][text]" required><br>
-                <label class="form-label" for="option${questionIndex}1">Вариант ответа:</label>
-                <input class="form-input" type="text" id="option${questionIndex}1" name="questions[${questionIndex - 1}][options][0][text]" required>
-                <input class="form-input" type="checkbox" name="questions[${questionIndex - 1}][options][0][isCorrect]" value="true"> Правильный ответ<br>
-                <label class="form-label" for="option${questionIndex}2">Вариант ответа:</label>
-                <input class="form-input" type="text" id="option${questionIndex}2" name="questions[${questionIndex - 1}][options][1][text]" required>
-                <input class="form-input" type="checkbox" name="questions[${questionIndex - 1}][options][1][isCorrect]" value="true"> Правильный ответ<br>
-                <label class="form-label" for="option${questionIndex}3">Вариант ответа:</label>
-                <input class="form-input" type="text" id="option${questionIndex}3" name="questions[${questionIndex - 1}][options][1][text]" required>
-                <input class="form-input" type="checkbox" name="questions[${questionIndex - 1}][options][1][isCorrect]" value="true"> Правильный ответ<br><br>
+            <div class="question">
+                <div class="input-group">
+                    <label class="form-label" for="question${questionIndex}">Вопрос ${questionIndex}:</label>
+                    <input type="text" id="question${questionIndex}" name="questions[${questionIndex - 1}][text]" required><br>
+                </div>
+
+                <div class="input-group">
+                    <label class="form-label">Вариант ответа 1:</label>
+                    <input type="text" id="option${questionIndex}1" name="questions[${questionIndex - 1}][options][0][text]" required>
+                    <label class="form-checkbox">
+                        Правильный ответ:
+                        <input type="checkbox" name="questions[${questionIndex - 1}][options][1][isCorrect]" value="true">
+                    </label>
+                </div>
+                <div class="input-group">
+                    <label class="form-label">Вариант ответа 2:</label>
+                    <input type="text" id="option${questionIndex}2" name="questions[${questionIndex - 1}][options][1][text]" required>
+                    <label class="form-checkbox">
+                        Правильный ответ:
+                        <input type="checkbox" name="questions[${questionIndex - 1}][options][1][isCorrect]" value="true">
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <label class="form-label">Вариант ответа 3:</label>
+                    <input type="text" id="option${questionIndex}3" name="questions[${questionIndex - 1}][options][1][text]" required>
+                    <label class="form-checkbox">
+                        Правильный ответ:
+                        <input type="checkbox" name="questions[${questionIndex - 1}][options][1][isCorrect]" value="true">
+                    </label>
+                </div>
+            </div>
             `;
 
             container.appendChild(questionDiv);
+
+            const create_test_btn = document.querySelector('.create-test-btn');
+            create_test_btn.style.display = 'block';
         }
     </script>
-</body>
-</html>

@@ -17,3 +17,81 @@
     color: var(--main-color-1);
     font-size: 16px;
 }
+
+.test-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.add-question-btn, .create-test-btn{
+    margin: 0;
+    padding: 15px 0;
+    width: 45%;
+    font-size: 16px;
+    transition: all 0.2s ease-in;
+}
+
+.add-question-btn:hover, .create-test-btn:hover{
+    background-color: var(--main-color-3);
+    transition: all 0.2s ease-in;
+}
+
+.add-question-btn{
+    margin: 0;
+}
+
+.create-test-btn{
+    display: none;
+}
+
+.test-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 50%;
+    margin: 100px auto 100px auto;
+    min-height: 80vh;
+
+    border-radius: 30px;
+    background-color: var(--background-color);
+    box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.05);
+}
+
+.test-container form{
+    width: 70%;
+}
+
+.test-container .input-group{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.test-container .input-group label{
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.test-container .input-group input{
+    width: 100%;
+}
+
+.test-container .input-group .form-checkbox{
+    width: 50%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 10px;
+}
+
+.test-container .input-group .form-checkbox input{
+    height: 100%;
+    width: 20px;
+    display: flex;
+}
+
+.question{
+    margin-bottom: 50px;
+}
