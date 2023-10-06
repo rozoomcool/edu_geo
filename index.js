@@ -13,6 +13,7 @@ const PORT = 3000 || process.env.PORT;
 const authRouter = require('./routers/auth_router');
 const userRouter = require('./routers/user_router');
 const testRouter = require('./routers/test_router');
+<<<<<<< Updated upstream
 
 // устанавливаем настройки для файлов layout
 app.engine("hbs", expressHbs.engine(
@@ -24,6 +25,8 @@ app.engine("hbs", expressHbs.engine(
 ))
 app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
+=======
+>>>>>>> Stashed changes
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
