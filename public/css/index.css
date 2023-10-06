@@ -1,33 +1,38 @@
 body {
-    width: 1920px;
-    max-width: 100%;
-    font-family:'Montserrat', sans-serif;
+    width: 100vw;
+    font-family: var(--general-font);
     margin: auto;
     background: #F5F5F5;
 }
-header {
+.head    {
     z-index: 2;
-    width: 1920px;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     height: 108px;
-    box-shadow: 0px -17px 41px 6px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 -17px 41px 6px rgba(0, 0, 0, 0.10);
     background-color: #F5F5F5;
     color: black;
-
 }
-header .logo-text {
-    width: 218px;
+.head .logo {
     height: 48px;
     font-size: 40px ;
     font-weight: 800;
-    margin-left: 201px;
+    margin-left: 10%;
 }
+
+.home, .proj-info {
+    height: 31px;
+    margin-left: 29px;
+}
+
 .nav {
     display: flex;
-    margin-left: 390px;
+    margin-left: auto;
     height: 31px;
     font-size: 25px;
 }
+
 .nav .a {
     color : black;
     font-weight: 600;
@@ -47,11 +52,8 @@ header .logo-text {
     margin-left: 27px;
     margin-top: 28px;
 }
-.home, .proj-info, .logo {
-    height: 31px;
-    margin-left: 29px;
-}
-.logo-text a {
+
+.logo a {
     color : black;
     font-weight: 800;
     text-decoration: none;
@@ -142,7 +144,7 @@ line-height: normal;
 
 .quest-small:hover {
     color: #000;
-}.logo-text:hover{
+}.logo:hover{
     color: #20766D;
 }
 .map {
@@ -344,13 +346,13 @@ letter-spacing: -0.45px;
 .quest-small{
     color: #20766D;
 }
-.logo-text {
+.logo {
     display: flex;
 }
 .header-title {
     display: flex;
 }
-.logo-text {
+.logo {
     width: 240px;
     height: 48px;
     font-size: 40px ;
