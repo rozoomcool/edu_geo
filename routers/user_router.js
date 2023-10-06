@@ -13,12 +13,25 @@ const roles = {
     'student': 'Ученик'
 }
 
+const pages = {
+    'teacher': 'teacher_profile.hbs',
+    'student': 'student_profile.hbs'
+}
+
 router.get('/', async (req, res) => {
     await User.findOne({username: req.session.username})
         .then((el) => {
             el.birthDay = `${el.birthDay.getDay()}.${el.birthDay.getMonth()}.${el.birthDay.getFullYear()}`;
-            el.role = roles[el.role];
-            return res.render("profile.hbs", { user: el });
+            if (el.role === 'student') {
+                return res.render('student_profile.hbs', { user: el });
+            }
+            if (el.role === 'teacher') {
+                return res.render('teacher_profile.hbs', { user: el });
+            }
+            if (el.role === 'admin') {
+                return res.render('student_profile.hbs', { user: el });
+            }
+            
         })
         .catch((err) => console.log(err));
 });

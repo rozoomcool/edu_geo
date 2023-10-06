@@ -12,6 +12,7 @@ const PORT = 3000 || process.env.PORT;
 
 const authRouter = require('./routers/auth_router');
 const userRouter = require('./routers/user_router');
+const testRouter = require('./routers/test_router');
 
 // устанавливаем настройки для файлов layout
 app.engine("hbs", expressHbs.engine(
@@ -41,6 +42,8 @@ app.use(express.static(__dirname + "/public"));
 app.use('/auth', authRouter);
 
 app.use('/user', userRouter);
+
+app.use('/test', testRouter);
 
 app.get('/', async (req, res) => {
     res.render("index.hbs", {isLogin: !!req.session.username, nickname: req.session.username});
